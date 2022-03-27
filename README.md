@@ -1,12 +1,4 @@
-# datacamp-project
-
-<p align="center">
- <center> 
- <FONT COLOR="BLUE">
- <strong><font size = '+3.5'>  Salary Prediction of NBA basketball players </font></strong>
-   </FONT>
- </center>
-</p>
+# Salary Prediction of NBA basketball players 
 
 <p align="center">
     <center>
