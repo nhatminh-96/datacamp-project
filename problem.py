@@ -41,7 +41,7 @@ score_types = [
 
 
 def get_train_data(path="./"):
-    train = pd.read_csv(path + '/data/' + 'train.csv')
+    train = pd.read_csv(os.path.join(path, "data", "train", 'train.csv'))
     features = list(set((train.columns))- set(['SALARY']))
     X_train, y_train = train[features], train['SALARY']
     X_train = X_train.reset_index()
@@ -50,7 +50,7 @@ def get_train_data(path="./"):
 
 
 def get_test_data(path="./"):
-    test = pd.read_csv(path + '/data/' + 'test.csv')
+    test = pd.read_csv(os.path.join(path, "data", "test", "test.csv"))
     features = list(set((test.columns))- set(['SALARY']))
     X_test, y_test = test[features], test['SALARY']
     X_test = X_test.reset_index()
@@ -59,5 +59,5 @@ def get_test_data(path="./"):
 
 
 def get_cv(X, y):
-    cv = ShuffleSplit(n_splits=10, test_size=0.25, random_state=57)
+    cv = ShuffleSplit(n_splits=5, test_size=0.2, random_state=1)
     return cv.split(X, y)

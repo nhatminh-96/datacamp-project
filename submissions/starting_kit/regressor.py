@@ -14,5 +14,5 @@ class Regressor(BaseEstimator):
 
     def predict(self, X):
         res = self.model.predict(X / self.X_scaling_) * self.Y_scaling_
-        return res
+        return res.reshape(-1,1)
 
