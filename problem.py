@@ -11,7 +11,7 @@ import rampwf as rw
 from rampwf.score_types.base import BaseScoreType
 
 
-problem_title = "Salary predictio of NBA Basketball players"
+problem_title = "Salary prediction of NBA Basketball players"
 
 _target_names = [
     'Salary'
