@@ -42,19 +42,17 @@ score_types = [
 
 def get_train_data(path="./"):
     train = pd.read_csv(os.path.join(path, "data", "train", 'train.csv'))
-    features = list(set((train.columns))- set(['SALARY']))
+    features = list(set((train.columns))- set(['SALARY', 'Season']))
     X_train, y_train = train[features], train['SALARY']
     X_train = X_train.reset_index()
-    X_train = X_train.set_index(['index', 'Season'])
     return X_train.values, y_train.values.reshape(-1, 1)
 
 
 def get_test_data(path="./"):
     test = pd.read_csv(os.path.join(path, "data", "test", "test.csv"))
-    features = list(set((test.columns))- set(['SALARY']))
+    features = list(set((test.columns))- set(['SALARY', 'Season']))
     X_test, y_test = test[features], test['SALARY']
     X_test = X_test.reset_index()
-    X_test = X_test.set_index(['index', 'Season'])
     return X_test.values, y_test.values.reshape(-1, 1)
 
 
