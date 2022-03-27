@@ -29,7 +29,7 @@ pip install -U -r requirements.txt
 
 ### Challenge description
 
-Get started with the [dedicated notebook](nada_notebook.ipynb)
+Get started with the [dedicated notebook](NBA Players salary prediction.ipynb)
 
 
 ### Test a submission
