@@ -1,6 +1,14 @@
 # datacamp-project
 Data Camp project - salary prediction of NBA Basketball players
 
+<p align="center">
+    <center>
+    <img src= "https://i.imgur.com/aTqAM3o.jpg"
+    width = 40%;
+    height = auto; />
+    </center>
+</p>
+
 ## Getting started
 
 ### Install
