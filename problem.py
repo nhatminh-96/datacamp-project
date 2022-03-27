@@ -4,58 +4,58 @@ from glob import glob
 
 import pandas as pd
 import numpy as np
+from sklearn.metrics import r2_score
 from sklearn.model_selection import ShuffleSplit
 
 import rampwf as rw
 from rampwf.score_types.base import BaseScoreType
 
-problem_title = "Isotopic inventory of a nuclear reactor core in operation"
+
+problem_title = "Salary predictio of NBA Basketball players"
 
 _target_names = [
-    j + str(i + 1) for j in list(string.ascii_uppercase) for i in range(80)
+    'Salary'
 ]
 
 Predictions = rw.prediction_types.make_regression(label_names=_target_names)
 workflow = rw.workflows.Regressor()
 
 
-class MAPE(BaseScoreType):
-    is_lower_the_better = True
+class R2(BaseScoreType):
+    is_lower_the_better = False
     minimum = 0.0
-    maximum = float("inf")
+    maximum = 1.0
 
-    def __init__(self, name="MAPE", precision=4):
+    def __init__(self, name="r2_score", precision=4):
         self.name = name
         self.precision = precision
 
     def __call__(self, y_true, y_pred):
-        mape = (np.abs(y_true - y_pred) / y_true).mean()
-        return mape
+        r2 = r2_score(y_true, y_pred)
+        return r2
 
 
 score_types = [
-    MAPE(name="MAPE"),
+    R2(name="r2_score"),
 ]
 
 
-def get_file_list_from_dir(*, path, datadir):
-    data_files = sorted(glob(os.path.join(path, "data", datadir, "*.csv.gz")))
-    return data_files
+def get_train_data(path="./"):
+    train = pd.read_csv(path + '/data/' + 'train.csv')
+    features = list(set((train.columns))- set(['SALARY']))
+    X_train, y_train = train[features], train['SALARY']
+    X_train = X_train.reset_index()
+    X_train = X_train.set_index(['index', 'Season'])
+    return X_train.values, y_train.values.reshape(-1, 1)
 
 
-def _get_data(path=".", split="train"):
-    
-
-    
-    return X, Y
-
-
-def get_train_data(path="."):
-    return _get_data(path, "train")
-
-
-def get_test_data(path="."):
-    return _get_data(path, "test")
+def get_test_data(path="./"):
+    test = pd.read_csv(path + '/data/' + 'test.csv')
+    features = list(set((test.columns))- set(['SALARY']))
+    X_test, y_test = test[features], test['SALARY']
+    X_test = X_test.reset_index()
+    X_test = X_test.set_index(['index', 'Season'])
+    return X_test.values, y_test.values.reshape(-1, 1)
 
 
 def get_cv(X, y):

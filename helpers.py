@@ -2,6 +2,7 @@ from sklearn.preprocessing import OrdinalEncoder
 import numpy as np
 
 
+
 def convert_height(height_str):
     """
     Converting height from feet to centimeters
@@ -43,3 +44,8 @@ class CountOrdinalEncoder(OrdinalEncoder):
             order = np.argsort(counts)
             self.categories_[k] = cat[order]
         return self
+
+
+
+
+
