@@ -1,5 +1,12 @@
 # datacamp-project
-Data Camp project - salary prediction of NBA Basketball players
+
+<p align="center">
+ <center> 
+ <FONT COLOR="BLUE">
+ <strong><font size = '+3.5'>  Salary Prediction of NBA basketball players </font></strong>
+   </FONT>
+ </center>
+</p>
 
 <p align="center">
     <center>
@@ -9,6 +16,13 @@ Data Camp project - salary prediction of NBA Basketball players
     </center>
 </p>
 
+## *Team: 6 Layers of Stonks*
+- *Nada Amini* (M2 Data Science_École Polytechnique)
+- *Nhat-Minh Dao* (M2 Data Science_École Polytechnique)
+- *Fares Feki* (M2 Data Science_École Polytechnique)
+- *Juhyun Kim* (M2 Data Science_École Polytechnique)
+- *Zongmin Li* (M2 Data Science_École Polytechnique)
+- *Thanh-Nam Nguyen* (M2 Data Science_École Polytechnique)
 ## Getting started
 
 ### Install
